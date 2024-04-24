@@ -1,6 +1,9 @@
 (() => {
     'use strict';
 
+    const urlBaseProd = 'https://apia.gesport.com.br/public';
+    const urlBaseLocal = 'https://apia.gesport.com.br/public';
+
     //Fields validation
     const form = document.querySelector('#formPreRegistration');
 
@@ -35,18 +38,18 @@
                 checkButton();
                 const value = {
                     name: inputName.value,
-                    acronym: inputAcronym.value,
+                    acronym: inputAcronym.value.toUpperCase(),
                     responsible: {
                         name: inputResponsibleName.value,
                         phone: inputResponsiblePhone.value
                     },
                     city: {
                         name: inputCity.value,
-                        uf: inputState.value
+                        uf: inputState.value.toUpperCase()
                     },
                     instagram: inputInstagram.value
                 }
-                const responsePromise = await fetch('http://localhost/GEsports-back/public/team', {
+                const responsePromise = await fetch(`${urlBaseLocal}/team`, {
                     method: "POST",
                     mode: "cors",
                     cache: "no-cache",
