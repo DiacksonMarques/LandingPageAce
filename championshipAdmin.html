@@ -89,8 +89,8 @@
           <p>A Copa ACE Voleibol é o ápice da paixão pelo voleibol, reunindo os melhores times em uma competição intensa e emocionante.</p>
         </div>
 
-        <div class="row justify-content-center">
-          <table class="col-12 table">
+        <div class="table-responsive row">
+          <table id="list" class="col-12 table">
             <thead>
               <tr>
                 <th scope="col">Matricula</th>
@@ -101,31 +101,7 @@
                 <th scope="col">Cidade</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td> Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-              </tr>
+            <tbody id="bodyList">
             </tbody>
           </table>
         </div>
@@ -134,4 +110,6 @@
   </body>
   <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript"  src="core/toast.js"></script>
+
+  <script type="module"  src="forms/service/championshipAdmin.service.js"></script>
 </html>
