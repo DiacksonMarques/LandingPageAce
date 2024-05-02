@@ -38,18 +38,18 @@
                 checkButton();
                 const value = {
                     name: inputName.value,
-                    acronym: inputAcronym.value.toUpperCase(),
+                    acronym: inputAcronym.value ? inputAcronym.value.toUpperCase() : inputAcronym.value,
                     responsible: {
                         name: inputResponsibleName.value,
                         phone: inputResponsiblePhone.value
                     },
                     city: {
                         name: inputCity.value,
-                        uf: inputState.value.toUpperCase()
+                        uf: inputState.value ? inputState.value : inputState.value.toUpperCase()
                     },
                     instagram: inputInstagram.value
                 }
-                const responsePromise = await fetch(`${urlBaseLocal}/team`, {
+                const responsePromise = await fetch(`${urlBaseProd}/team`, {
                     method: "POST",
                     mode: "cors",
                     cache: "no-cache",

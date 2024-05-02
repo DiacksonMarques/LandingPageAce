@@ -6,6 +6,7 @@
 
     //Fields
     const bodyList = document.querySelector("#bodyList");
+    const lineLoading = document.querySelector("#lineLoading");
 
     function addLineTable(value){
         const tr = bodyList.insertRow();
@@ -41,4 +42,5 @@
     response.forEach(team => {
         addLineTable(team);
     });
+    lineLoading.classList.add('d-none');
 })();
