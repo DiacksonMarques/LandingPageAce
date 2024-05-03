@@ -1,4 +1,4 @@
-import { validation } from  '../../core/validation.js';
+import { validation, validationSelect } from  '../../core/validation.js';
 
 (() => {
     'use strict';
@@ -23,6 +23,14 @@ import { validation } from  '../../core/validation.js';
 
     inputAcronym.addEventListener('input', () => {
         validation(form, gruopAcronym, inputAcronym, messageAcronym);
+    });
+
+    const gruopNaipe = form.querySelector('#gruopNaipe');
+    const selectNaipe = gruopNaipe.querySelector('#selectNaipe');
+    const messageNaipe = gruopNaipe.querySelector('#messageNaipe');
+
+    selectNaipe.addEventListener('input', () => {
+        validationSelect(form, gruopNaipe, selectNaipe, messageNaipe);
     });
 
     const gruopInstagram = form.querySelector('#gruopInstagram');
@@ -72,6 +80,16 @@ import { validation } from  '../../core/validation.js';
 
         form.classList.add('was-validated');
         gruopName.classList.remove('was-validated');
+        gruopAcronym.classList.remove('was-validated');
+        gruopNaipe.classList.remove('was-validated');
+        gruopCity.classList.remove('was-validated');
+        gruopState.classList.remove('was-validated');
+        gruopResponsibleName.classList.remove('was-validated');
+        gruopResponsiblePhone.classList.remove('was-validated');
+
+        if(validationSelect(form, gruopNaipe, selectNaipe, messageNaipe)){
+            return false;
+        }
 
         return;
     })

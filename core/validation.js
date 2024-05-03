@@ -28,3 +28,18 @@ export const validation = (form, gruop, input, message) => {
     input.setCustomValidity('');
     message.innerHTML = 'valid';
 };
+
+export const validationSelect = (form, gruop, select, message) => {
+    if(!form.classList.contains('was-validated') && !gruop.classList.contains('was-validated')){
+        gruop.classList.add('was-validated');
+    }
+
+    if(select.value == '--'){
+        select.setCustomValidity('required');
+        message.innerHTML = 'Campo obrigatório';
+        return true;
+    }
+
+    select.setCustomValidity('');
+    message.innerHTML = 'valid';
+};

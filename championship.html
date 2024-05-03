@@ -107,7 +107,7 @@
               </div>
             </div>
   
-            <div class="col-lg-2 col-sm-12 col-md-6 mb-2">
+            <div class="col-xl-2 col-sm-12 col-md-6 mb-2">
               <div id="gruopAcronym" class="form-floating">
                 <input type="text" class="form-control text-uppercase" id="inputAcronym" placeholder="" required minlength="3" maxlength="3">
                 <label for="inputAcronym">Sigla da equipe</label>
@@ -115,8 +115,22 @@
                 <div id="messageAcronym" class="invalid-feedback"></div>
               </div>
             </div>
-  
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+
+            <div class="col-xl-2 col-md-6 col-sm-12 mb-2">
+              <div id="gruopNaipe" class="form-floating">
+                <select class="form-select" id="selectNaipe" aria-label="" required>
+                  <option selected>--</option>
+                  <option value="MAS">Masculino</option>
+                  <option value="FEM">Feminino</option>
+                  <option value="AMB">Ambos</option>
+                </select>
+                <label for="selectNaipe">Naipe</label>
+
+                <div id="messageNaipe" class="invalid-feedback"></div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-12 col-sm-12 mb-2">
               <div id="gruopInstagram" class="form-floating">
                 <input type="text" class="form-control" id="inputInstagram" placeholder="">
                 <label for="inputInstagram">Instagram da equipe</label>
@@ -125,7 +139,7 @@
               </div>
             </div>
   
-            <div class="col-lg-5 col-md-6 col-sm-12 mb-2">
+            <div class="col-xl-4 col-md-8 col-sm-12 mb-2">
               <div id="gruopCity" class="form-floating">
                 <input type="text" class="form-control" id="inputCity" placeholder="" required>
                 <label for="inputCity">Cidade da equipe</label>
@@ -134,7 +148,7 @@
               </div>
             </div>
 
-            <div class="col-lg-1 col-md-6 col-sm-12 mb-2">
+            <div class="col-xl-1 col-md-4 col-sm-12 mb-2">
               <div id="gruopState" class="form-floating">
                 <input type="text" class="form-control text-uppercase" id="inputState" placeholder="" required minlength="2" maxlength="2">
                 <label for="inputState">UF</label>
