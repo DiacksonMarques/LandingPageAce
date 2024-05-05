@@ -1,0 +1,94 @@
+body {
+    background-color: #022873 ;
+
+}
+
+h3 {
+    color: white;
+}
+
+.container-button {
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    min-width: 250px;
+    height: 40px;
+    
+    .button-check {
+        min-width: 125px;
+        font-size: 20px;
+        font-weight: 800;
+        cursor: pointer;
+
+        span {
+            color: white;
+            padding: 7px;
+        }
+        
+        :hover {
+            background-color: #004bde;
+            min-width: 125px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+
+    .active {
+        background-color: #003db7;
+        border-radius: 12px;
+        height: 100%;
+        min-width: 125px;
+    }
+
+    
+}
+
+.container-gruop{
+    background-color: rgb(255, 255, 255, 0.65);
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    padding: 10px 5px 6px 4px;
+
+    .button{
+        background-color: white;
+        color: #022873;
+        width: 15rem;
+        height: 3rem;
+        border: none;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    .button:hover {
+        background-color: rgb(236, 236, 236) !important;
+
+    }
+
+    .title {
+        color: #022873;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .sub-title {
+        color: #022873;
+        font-size: 20px;
+        font-weight: 900;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    .center-media {
+        display: flex ;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}

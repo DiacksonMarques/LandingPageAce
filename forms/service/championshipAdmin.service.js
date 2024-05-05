@@ -1,9 +1,8 @@
+import { urlBase } from "../../core/constantes";
+
 (async () => {
     'use strict';
 
-    const urlBaseProd = 'https://apia.gesport.com.br/public';
-    const urlBaseLocal = 'http://localhost/GEsports-back/public';
-    const baseUrl = urlBaseProd;
 
     //Fields
     const bodyList = document.querySelector("#bodyList");
@@ -29,7 +28,7 @@
         tdCity.innerText = `${value.city.name} - ${value.city.uf}`;
     }
 
-    const responsePromise = await fetch(`${baseUrl}/teams`, {
+    const responsePromise = await fetch(`${urlBase}/teams`, {
         method: "get",
         mode: "cors",
         cache: "no-cache",

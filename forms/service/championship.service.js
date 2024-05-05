@@ -1,9 +1,8 @@
+import { urlBase } from "../../core/constantes";
+
 (() => {
     'use strict';
 
-    const urlBaseProd = 'https://apia.gesport.com.br/public';
-    const urlBaseLocal = 'http://localhost/GEsports-back/public';
-    const baseUrl = urlBaseProd;
 
     //Fields validation
     const form = document.querySelector('#formPreRegistration');
@@ -53,7 +52,7 @@
                     instagram: inputInstagram.value,
                     naipe: selectNaipe.value
                 }
-                const responsePromise = await fetch(`${baseUrl}/team`, {
+                const responsePromise = await fetch(`${urlBase}/team`, {
                     method: "POST",
                     mode: "cors",
                     cache: "no-cache",
