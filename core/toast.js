@@ -5,8 +5,9 @@ const textToast = toastLive.querySelector('#textToast');
 const alertLive = document.getElementById('liveAlert');
 
 const showToast = (message, type) => {
-    if(toastLive.classList.length == 4){
+    if(toastLive.classList.length >= 4){
         toastLive.classList.remove(toastLive.classList[3]);
+        
     }
 
     toastLive.classList.add('text-bg-' + type);
