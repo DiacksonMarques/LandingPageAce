@@ -48,19 +48,21 @@ import { urlBase } from "../../core/constantes.js";
                 if(responsePromise.status == 200){
                     if(response.name != null){
                         showToast(`Atleta ${response.name} encontrado`, 'success');
-                        
+
                         gruopAthlete.classList.remove('d-none');
                         inputEnrolmentAthlete.value = response.enrolment;
                         inputNameAthlete.value = response.name;
+
+                        seachNumberAthlete(response.enrolment);
                     } else {
                         gruopAthlete.classList.add('d-none');
                         inputEnrolmentAthlete.value = null;
                         inputNameAthlete.value = null;
                         showToast(`Atleta não encontrado`, 'warning');
                     }
-                    
-                    checkButton();
                 }
+
+                checkButton();
               } catch (error) {
                 showToast(error.message, 'danger');
                 checkButton();
@@ -74,6 +76,7 @@ import { urlBase } from "../../core/constantes.js";
                 showToast(`Selecione um atleta para gerar os números`, 'warning');
             }
 
+            checkButton();
             removeNumber();
 
             const value = {
@@ -95,18 +98,10 @@ import { urlBase } from "../../core/constantes.js";
             const response = await responsePromise.json();
 
             if(response.idAthlete){
-                response.numberRaffle.forEach(value => {
-                    const wrapper = document.createElement('div');
-                    wrapper.classList.add('col-3');
-                    wrapper.classList.add('col-lg-1');
-        
-                    wrapper.innerHTML = [
-                        `   <span class="badge text-bg-primary">${value.number}</span>`,
-                    ].join('')
-                    
-                    showNumber.append(wrapper);
-                });
+                addNumberAthlete(response.numberRaffle);
             }
+
+            checkButton();
         } catch (error) {
             removeNumber();
             showToast(error.message, 'danger');
@@ -114,19 +109,55 @@ import { urlBase } from "../../core/constantes.js";
         }
     });
 
-    const checkButton = () => {
-        if(buttonLoad.classList.contains('d-none')){
-            buttonSubmit.classList.add('d-none');
-            buttonLoad.classList.remove('d-none');
-            buttonSubmitNewNumber.classList.add('d-none');
-            buttonLoadNewNumber.classList.remove('d-none');
-        }
+    const seachNumberAthlete = async (enrolment) => {
+        const responsePromise = await fetch(`${urlBase}/raffleAthlete/${enrolment}`, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrerPolicy: "no-referrer"
+        });
+        const response = await responsePromise.json();
 
-        if(buttonSubmit.classList.contains('d-none')){
+        if(response.numberRaffle){
+            addNumberAthlete(response.numberRaffle);
+        }
+    }
+
+    const addNumberAthlete = (listNumber) => {
+        if(listNumber.length){
+            listNumber.forEach(value => {
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('col-3');
+                wrapper.classList.add('col-lg-1');
+    
+                wrapper.innerHTML = [
+                    `   <span class="badge text-bg-primary">${value.number}</span>`,
+                ].join('')
+                
+                showNumber.append(wrapper);
+            });
+        }
+    };
+
+    const checkButton = () => {
+        if(buttonLoad.classList.contains('d-none') || buttonLoadNewNumber.classList.contains('d-none')){
+            buttonSubmit.classList.add('d-none');
+            buttonSubmitNewNumber.classList.add('d-none');
+            
+            buttonLoad.classList.remove('d-none');
+            buttonLoadNewNumber.classList.remove('d-none');
+
+        } else if(buttonSubmit.classList.contains('d-none') || buttonSubmitNewNumber.classList.contains('d-none')){
             buttonLoad.classList.add('d-none');
+            buttonLoadNewNumber.classList.add('d-none');
+            
             buttonSubmit.classList.remove('d-none');
             buttonSubmitNewNumber.classList.remove('d-none');
-            buttonLoadNewNumber.classList.add('d-none');
         }
     }
 

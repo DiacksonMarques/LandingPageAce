@@ -69,6 +69,18 @@
     </header><!-- End Header -->
     
     <section id="team" class="team sections-bg">
+      <div aria-live="polite" aria-atomic="true" class="">
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div class="toast align-items-center fade text-bg-primary" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="textToast">
+                        
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+      </div>
       <div id="liveAlert"></div>
 
       <div class="container" >
@@ -77,28 +89,101 @@
           <p>Consulte seus números e quais foram vendidos.</p>
         </div>
 
-        <form id="formPreRegistration" novalidate>
-            <div class="row">
-                <div class="col-xl-9 mb-2">
-                    <div id="gruopName" class="form-floating">
-                        <input type="text" class="form-control" id="inputName" placeholder="" required minlength="3">
-                        <label for="inputName">Nome completo ou Matrícula</label>
-
-                        <div id="messageName" class="invalid-feedback"></div>
-                    </div>
+        <form id="formRaffle" novalidate>
+          <div class="row">
+              <div class="col-xl-6 mb-2">
+                <div id="gruopSeachAthlete" class="form-floating">
+                  <input type="text" class="form-control" id="inputSeachAthlete" placeholder="" minlength="5" required>
+                  <label for="inputSeachAthlete">Paramentro Busca</label>
+  
+                  <div id="messageSeachAthlete" class="invalid-feedback"></div>
                 </div>
+              </div>
 
-                <div  class="col-lg-3 col-md-6">
-                    <button id="buttonSubmit" type="submit" class="btn btn-primary w-100">
-                      Gerar Números
-                    </button>
-                    <button id="buttonLoad" class="btn btn-primary w-100 d-none" type="button" disabled>
-                      <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-                      <span role="status">Carregando...</span>
-                    </button>
-                  </div>
-            </div>
+              <div  class="col-lg-3 mb-2 col-md-6">
+                <button id="buttonSeachAthlete" type="submit" class="btn btn-primary w-100 py-3">
+                  Buscar por atleta
+                </button>
+                <button id="buttonLoadSeachAthlete" class="btn btn-primary w-100 d-none py-3" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                  <span role="status">Carregando...</span>
+                </button>
+              </div>
+
+              <div  class="col-lg-3 col-md-6">
+                <button id="buttonSeachAllAthlete" type="button" class="btn btn-primary w-100 py-3">
+                  Buscar atletas com rifa
+                </button>
+                <button id="buttonLoadSeachAllAthlete" class="btn btn-primary w-100 d-none py-3" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                  <span role="status">Carregando...</span>
+                </button>
+              </div>
+          </div>
         </form>
+
+        <div class="row d-none" id="gruopAthlete">
+          <div class="col-lg-6 mb-2">
+            <div id="gruopEnrolmentAthlete" class="form-floating">
+              <input type="text" class="form-control" id="inputEnrolmentAthlete" placeholder="" minlength="5" disabled>
+              <label for="inputEnrolmentAthlete">Matrícula</label>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-2">
+            <div id="gruopNameAthlete" class="form-floating">
+              <input type="text" class="form-control" id="inputNameAthlete" placeholder="" minlength="5" disabled>
+              <label for="inputNameAthlete">Nome</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive d-none row mt-3" id="tableValue">
+          <table id="list" class="col-12 table">
+            <thead>
+              <tr>
+                <th scope="col">Número</th>
+                <th scope="col">Pessoa Vendida</th>
+                <th scope="col">Tipo pagamento</th>
+              </tr>
+            </thead>
+            <tbody id="bodyList">
+              <tr id="lineLoading">
+                <td colspan="3">
+                  <div class="d-flex justify-content-center">
+                    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-responsive d-none row mt-3" id="tableAthlete">
+          <table id="list" class="col-12 table">
+            <thead>
+              <tr>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Qtd. Rifas</th>
+                <th scope="col">Qtd. Rifas Vendidas</th>
+              </tr>
+            </thead>
+            <tbody id="bodyListAllAthlete">
+              <tr id="lineLoadingAllAthlete">
+                <td colspan="4">
+                  <div class="d-flex justify-content-center">
+                    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section><!-- End Our Team Section -->
   </body>
@@ -107,6 +192,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
-  <script type="module"  src="forms/validation/validationChampionship.js"></script>
-  <script type="module"  src="forms/service/championship.service.js"></script>
+  <script type="module"  src="forms/validation/validationraffleRegistration.js"></script>
+  <script type="module"  src="forms/service/raffleRegistrationConsult.service.js"></script>
 </html>
