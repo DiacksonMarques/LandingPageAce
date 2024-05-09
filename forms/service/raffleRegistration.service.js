@@ -134,9 +134,9 @@ import { urlBase } from "../../core/constantes.js";
                 const wrapper = document.createElement('div');
                 wrapper.classList.add('col-3');
                 wrapper.classList.add('col-lg-1');
-    
+                
                 wrapper.innerHTML = [
-                    `   <span class="badge text-bg-primary">${value.number}</span>`,
+                    `   <span class="badge text-bg-${value.person ? 'success': 'primary'}">${value.number}</span>`,
                 ].join('')
                 
                 showNumber.append(wrapper);
