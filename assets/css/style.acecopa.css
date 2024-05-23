@@ -57,9 +57,10 @@ h2 {
 .container-gruop{
     background-color: rgb(255, 255, 255, 0.65);
     border-radius: 5px;
-    width: 300px;
+    width: 100%;
     height: 300px;
     padding: 18px 5px 6px 4px;
+    margin-bottom: 15px;
     
 
     .button{
@@ -104,12 +105,7 @@ h2 {
     }
 }
 
-.container {
-    background-color: white;
-    border-radius: 15px;
-    width: 1000px;
-    height: 600px;
-}
+
 
 #cxpontos {
     background-color: #e3e8f1;
@@ -118,5 +114,13 @@ h2 {
     width: 30px;
     height: 30px;
     text-align: center;
+}
+
+.table {
+    width: 90%;
+    margin: auto;
+    overflow: scroll;
+    margin-bottom: 15px;
+    
 }
 
