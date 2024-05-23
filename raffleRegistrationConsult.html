@@ -85,111 +85,105 @@
 
       <div class="container" >
         <div class="section-header">
-          <h2>Copa ACE Voleibol</h2>
-          <p>A Copa ACE Voleibol é o ápice da paixão pelo voleibol, reunindo os melhores times em uma competição intensa e emocionante.</p>
+          <h2>Consulta Rifa ACE</h2>
+          <p>Consulte seus números e quais foram vendidos.</p>
         </div>
 
-        <div class="row justify-content-end">
-          <div  class="col-lg-3 col-md-6 mb-2">
-            <a href="https://apia.gesport.com.br/public/donwloadRegulation" class="btn btn-primary w-100">
-              Regulamento Copa ACE
-            </a>
-        </div>
-
-        <form id="formPreRegistration" novalidate>
+        <form id="formRaffle" novalidate>
           <div class="row">
-            <div class="col-12 mb-2">
-              <div id="gruopName" class="form-floating">
-                <input type="text" class="form-control" id="inputName" placeholder="" required minlength="3">
-                <label for="inputName">Nome da equipe</label>
-
-                <div id="messageName" class="invalid-feedback"></div>
-              </div>
-            </div>
+              <div class="col-xl-6 mb-2">
+                <div id="gruopSeachAthlete" class="form-floating">
+                  <input type="text" class="form-control" id="inputSeachAthlete" placeholder="" minlength="5" required>
+                  <label for="inputSeachAthlete">Paramentro Busca</label>
   
-            <div class="col-xl-2 col-sm-12 col-md-6 mb-2">
-              <div id="gruopAcronym" class="form-floating">
-                <input type="text" class="form-control text-uppercase" id="inputAcronym" placeholder="" required minlength="3" maxlength="3">
-                <label for="inputAcronym">Sigla da equipe</label>
-
-                <div id="messageAcronym" class="invalid-feedback"></div>
+                  <div id="messageSeachAthlete" class="invalid-feedback"></div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-xl-2 col-md-6 col-sm-12 mb-2">
-              <div id="gruopNaipe" class="form-floating">
-                <select class="form-select" id="selectNaipe" aria-label="" required>
-                  <option selected>--</option>
-                  <option value="MAS">Masculino</option>
-                  <option value="FEM">Feminino</option>
-                  <option value="AMB">Ambos</option>
-                </select>
-                <label for="selectNaipe">Naipe</label>
-
-                <div id="messageNaipe" class="invalid-feedback"></div>
+              <div  class="col-lg-3 mb-2 col-md-6">
+                <button id="buttonSeachAthlete" type="submit" class="btn btn-primary w-100 py-3">
+                  Buscar por atleta
+                </button>
+                <button id="buttonLoadSeachAthlete" class="btn btn-primary w-100 d-none py-3" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                  <span role="status">Carregando...</span>
+                </button>
               </div>
-            </div>
 
-            <div class="col-xl-3 col-md-12 col-sm-12 mb-2">
-              <div id="gruopInstagram" class="form-floating">
-                <input type="text" class="form-control" id="inputInstagram" placeholder="">
-                <label for="inputInstagram">Instagram da equipe</label>
-
-                <div id="messageInstagram" class="invalid-feedback"></div>
+              <div  class="col-lg-3 col-md-6">
+                <button id="buttonSeachAllAthlete" type="button" class="btn btn-primary w-100 py-3">
+                  Buscar atletas com rifa
+                </button>
+                <button id="buttonLoadSeachAllAthlete" class="btn btn-primary w-100 d-none py-3" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                  <span role="status">Carregando...</span>
+                </button>
               </div>
-            </div>
-  
-            <div class="col-xl-4 col-md-8 col-sm-12 mb-2">
-              <div id="gruopCity" class="form-floating">
-                <input type="text" class="form-control" id="inputCity" placeholder="" required>
-                <label for="inputCity">Cidade da equipe</label>
-
-                <div id="messageCity" class="invalid-feedback"></div>
-              </div>
-            </div>
-
-            <div class="col-xl-1 col-md-4 col-sm-12 mb-2">
-              <div id="gruopState" class="form-floating">
-                <input type="text" class="form-control text-uppercase" id="inputState" placeholder="" required minlength="2" maxlength="2">
-                <label for="inputState">UF</label>
-
-                <div id="messageState" class="invalid-feedback"></div>
-              </div>
-            </div>
-          </div>
-          
-  
-          <div class="row">
-            <div class="col-lg-6 mb-2">
-              <div id="gruopResponsibleName" class="form-floating">
-                <input type="text" class="form-control" id="inputResponsibleName" placeholder="" minlength="5" required>
-                <label for="inputResponsibleName">Nome do responsável</label>
-
-                <div id="messageResponsibleName" class="invalid-feedback"></div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-2">
-              <div id="gruopResponsiblePhone" class="form-floating">
-                <input type="text" class="form-control" id="inputResponsiblePhone" placeholder="" minlength="16" maxlength="16" required>
-                <label for="inputResponsiblePhone">Número do responsável</label>
-
-                <div id="messageResponsiblePhone" class="invalid-feedback"></div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="row justify-content-end">
-            <div  class="col-lg-3 col-md-6">
-              <button id="buttonSubmit" type="submit" class="btn btn-primary w-100 disabled" disabled>
-                Confirma Pré-inscriçãos
-              </button>
-              <button id="buttonLoad" class="btn btn-primary w-100 d-none" type="button" disabled>
-                <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-                <span role="status">Carregando...</span>
-              </button>
-            </div>
           </div>
         </form>
+
+        <div class="row d-none" id="gruopAthlete">
+          <div class="col-lg-6 mb-2">
+            <div id="gruopEnrolmentAthlete" class="form-floating">
+              <input type="text" class="form-control" id="inputEnrolmentAthlete" placeholder="" minlength="5" disabled>
+              <label for="inputEnrolmentAthlete">Matrícula</label>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-2">
+            <div id="gruopNameAthlete" class="form-floating">
+              <input type="text" class="form-control" id="inputNameAthlete" placeholder="" minlength="5" disabled>
+              <label for="inputNameAthlete">Nome</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive d-none row mt-3" id="tableValue">
+          <table id="list" class="col-12 table">
+            <thead>
+              <tr>
+                <th scope="col">Número</th>
+                <th scope="col">Pessoa Vendida</th>
+                <th scope="col">Tipo pagamento</th>
+              </tr>
+            </thead>
+            <tbody id="bodyList">
+              <tr id="lineLoading">
+                <td colspan="3">
+                  <div class="d-flex justify-content-center">
+                    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-responsive d-none row mt-3" id="tableAthlete">
+          <table id="list" class="col-12 table">
+            <thead>
+              <tr>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Qtd. Rifas</th>
+                <th scope="col">Qtd. Rifas Vendidas</th>
+              </tr>
+            </thead>
+            <tbody id="bodyListAllAthlete">
+              <tr id="lineLoadingAllAthlete">
+                <td colspan="4">
+                  <div class="d-flex justify-content-center">
+                    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section><!-- End Our Team Section -->
   </body>
@@ -198,6 +192,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
-  <script type="module"  src="forms/validation/validationChampionship.js"></script>
-  <script type="module"  src="forms/service/championship.service.js"></script>
+  <script type="module"  src="forms/validation/validationraffleRegistration.js"></script>
+  <script type="module"  src="forms/service/raffleRegistrationConsult.service.js"></script>
 </html>

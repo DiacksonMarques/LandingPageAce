@@ -1,4 +1,4 @@
-import { urlBase } from "../../core/constantes";
+import { urlBase } from "../../core/constantes.js";
 
 (async () => {
     'use strict';
