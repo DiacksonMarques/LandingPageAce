@@ -1,28 +1,16 @@
-import {getStore,createStore, updateStore} from '../../core/section.js';
+import {getStore, updateStore} from '../../core/section.js';
 import { urlBase } from "../../core/constantes.js";
 
 (() => {
     'use strict';
     
-    const tabs = document.querySelectorAll('.tab-btn');
-    const btnFem = document.querySelector('#btnFem');
-    const btnMas = document.querySelector('#btnMas');
+    const tabs = document.querySelectorAll('.tab-btn');;
     const containerGroup = document.querySelector('#container-gruop');
     const tableListGames = document.querySelector("#tableListGames");
     const tableListClassification = document.querySelector("#tableListClassification");
     const tableListGruopOne = document.querySelector("#tableListGruopOne");
     const tableListGruopTwo = document.querySelector("#tableListGruopTwo");
     const tableListGruopThree = document.querySelector("#tableListGruopThree");
-
-    if (!getStore("keyNaipe")) {
-        createStore("keyNaipe", "FEM");
-    } else if(getStore("keyNaipe") == 'FEM'){
-        btnFem.classList.add('active');
-        btnMas.classList.remove('active');
-    }else if(getStore("keyNaipe") == 'MAS'){
-        btnMas.classList.add('active');
-        btnFem.classList.remove('active');
-    }
 
     //evento botão tab//
     
@@ -41,32 +29,8 @@ import { urlBase } from "../../core/constantes.js";
         tab.classList.add('active');
     }
 
-    //evento botão masculino e feminino//
-    
-    btnFem.addEventListener('click', () => {
-        if (getStore("keyNaipe")!="FEM") {
-            updateStore("keyNaipe", "FEM");
-            btnFem.classList.add('active');
-            btnMas.classList.remove('active');
-
-            clearPage();
-            pesquisaGrupos();
-        } 
-    });
-
-    btnMas.addEventListener('click', () => {
-        if (getStore("keyNaipe")!="MAS") {
-            updateStore("keyNaipe", "MAS");
-            btnMas.classList.add('active');
-            btnFem.classList.remove('active');
-
-            clearPage();
-            pesquisaGrupos();
-        }  
-    });
-
     const pesquisaGrupos = async () => {
-        const responseGruopPromise = await fetch(`${urlBase}/gruops/${getStore("keyNaipe")}`, {
+        const responseGruopPromise = await fetch(`${urlBase}/gruops/AMB`, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -80,7 +44,7 @@ import { urlBase } from "../../core/constantes.js";
         const responseGruop = await responseGruopPromise.json();
         criarGrupos(responseGruop);
 
-        const responseGamesPromise = await fetch(`${urlBase}/games/${getStore("keyNaipe")}`, {
+        const responseGamesPromise = await fetch(`${urlBase}/games/AMB`, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -96,7 +60,7 @@ import { urlBase } from "../../core/constantes.js";
             criarTabelaJogos(game);
         });
 
-        const responseCalssificationPromise = await fetch(`${urlBase}/calssification/${getStore("keyNaipe")}`, {
+        /* const responseCalssificationPromise = await fetch(`${urlBase}/calssification/${getStore("keyNaipe")}`, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -116,7 +80,7 @@ import { urlBase } from "../../core/constantes.js";
 
         if(getStore("keyNaipe") == 'MAS'){
             valueGruops = {one: 3, two: 4, thee: 5 };
-        }
+        };
 
         const responseGruopDetailsOnePromise = await fetch(`${urlBase}/gruopDetails/${valueGruops.one}`, {
             method: "GET",
@@ -132,9 +96,9 @@ import { urlBase } from "../../core/constantes.js";
         const responseGruopDetailsOne = await responseGruopDetailsOnePromise.json();
         responseGruopDetailsOne.forEach(calssification => {
             criarClassificao(calssification, tableListGruopOne.children.item(1));
-        });
+        }); */
 
-        const responseGruopDetailTwoPromise = await fetch(`${urlBase}/gruopDetails/${valueGruops.two}`, {
+        const responseGruopDetailTwoPromise = await fetch(`${urlBase}/gruopDetails/0`, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -150,7 +114,7 @@ import { urlBase } from "../../core/constantes.js";
             criarClassificao(calssification, tableListGruopTwo.children.item(1));
         });
 
-        const responseGruopDetailTheePromise = await fetch(`${urlBase}/gruopDetails/${valueGruops.thee}`, {
+        const responseGruopDetailTheePromise = await fetch(`${urlBase}/gruopDetails/1`, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
