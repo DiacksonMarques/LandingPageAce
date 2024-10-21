@@ -15,15 +15,16 @@ import { urlBase } from "../../core/constantes.js";
         const tdName = tr.insertCell();
         const tdAcronym = tr.insertCell();
         const tdNaipe = tr.insertCell();
-        const tdInstagram = tr.insertCell();
+        const tdCategory = tr.insertCell();
         const tdResponsible = tr.insertCell();
         const tdCity = tr.insertCell();
+console.log(value);
 
         tdId.innerText = value.enrollment;
         tdName.innerText = value.name;
         tdAcronym.innerText = value.acronym;
         tdNaipe.innerText = value.naipe;
-        tdInstagram.innerText = value.instagram;
+        tdCategory.innerText = value.category;
         tdResponsible.innerText = `${value.responsible.name} - ${value.responsible.phone}`;
         tdCity.innerText = `${value.city.name} - ${value.city.uf}`;
     }

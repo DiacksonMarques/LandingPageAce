@@ -13,7 +13,7 @@ import { urlBase } from "../../core/constantes.js";
 
     const selectNaipe = form.querySelector('#selectNaipe');
 
-    const inputInstagram = form.querySelector('#inputInstagram');
+    const selectCategory = form.querySelector('#selectCategory');
 
     const inputCity = form.querySelector('#inputCity');
 
@@ -28,7 +28,7 @@ import { urlBase } from "../../core/constantes.js";
     const buttonLoad = document.querySelector('#buttonLoad');
 
     const checkForm = () => {
-        return inputName.validity['valid'] && inputAcronym.validity['valid'] && inputInstagram.validity['valid'] && 
+        return inputName.validity['valid'] && inputAcronym.validity['valid'] && selectCategory.validity['valid'] && 
         inputCity.validity['valid'] && inputState.validity['valid'] && inputResponsibleName.validity['valid'] && inputResponsiblePhone.validity['valid'];
     }
 
@@ -49,7 +49,7 @@ import { urlBase } from "../../core/constantes.js";
                         name: inputCity.value,
                         uf: inputState.value ? inputState.value : inputState.value.toUpperCase()
                     },
-                    instagram: inputInstagram.value,
+                    category: selectCategory.value,
                     naipe: selectNaipe.value
                 }
                 const responsePromise = await fetch(`${urlBase}/team`, {

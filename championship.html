@@ -92,7 +92,7 @@
         <div class="row justify-content-end">
           <div  class="col-lg-3 col-md-6 mb-2">
             <a href="https://apia.gesport.com.br/public/donwloadRegulation" class="btn btn-primary w-100">
-              Regulamento Copa ACE
+              Regulamento Festival Cariri
             </a>
         </div>
 
@@ -131,11 +131,16 @@
             </div>
 
             <div class="col-xl-3 col-md-12 col-sm-12 mb-2">
-              <div id="gruopInstagram" class="form-floating">
-                <input type="text" class="form-control" id="inputInstagram" placeholder="">
-                <label for="inputInstagram">Instagram da equipe</label>
+              <div id="gruopCategory" class="form-floating">
+                <select class="form-select" id="selectCategory" aria-label="" required>
+                  <option selected>--</option>
+                  <option value="Aberto">Aberto</option>
+                  <option value="Sub-18">Sub-18</option>
+                  <option value="AMB">Ambos</option>
+                </select>
+                <label for="selectCategory">Categoria</label>
 
-                <div id="messageInstagram" class="invalid-feedback"></div>
+                <div id="messageCategory" class="invalid-feedback"></div>
               </div>
             </div>
   
